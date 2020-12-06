@@ -65,7 +65,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={props => (
+              render={(props) => (
                 <React.Fragment>
                   {/* When a route has to be binded with many components then it should be enclosed with in the React.Fragment.*/}
                   <div style={myStyle}>

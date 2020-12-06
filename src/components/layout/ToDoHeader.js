@@ -5,8 +5,12 @@ export default function ToDoHeader() {
   return (
     <header style={headerStyle}>
       <h1>To Do Application</h1>
-      <Link style={linkStyle} to="/">Home</Link>
-      <Link style={linkStyle} to="/about">Acount</Link>
+      <Link style={linkStyle} to="/">
+        Home
+      </Link>
+      <Link style={linkStyle} to="/about">
+        Acount
+      </Link>
     </header>
   );
 }
@@ -19,7 +23,7 @@ const headerStyle = {
 };
 
 const linkStyle = {
-    color : "#fff",
-    textDecoration: "none",
-    padding: "10px",
-}
+  color: "#fff",
+  textDecoration: "none",
+  padding: "10px",
+};

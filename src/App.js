@@ -6,34 +6,31 @@ import ToDoHeader from "./components/layout/ToDoHeader";
 import Todos from "./components/ToDo/Todos";
 import AddToDo from "./components/ToDo/AddToDo";
 import About from "./components/pages/About";
+import axios from "axios";
 
 class App extends Component {
   state = {
-    todos: [
-      {
-        id: 1,
-        title: "First ToDo",
-        complete: false,
-      },
-      {
-        id: 2,
-        title: "Second ToDo",
-        complete: true,
-      },
-      {
-        id: 3,
-        title: "Third ToDo",
-        complete: false,
-      },
-    ],
+    todos: [],
   };
+
+  // This method will be invoked when the component is loaded and ready.
+  componentDidMount(){
+    // We are making an get API call, for list of todos.
+    axios
+      .get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .then(res => {
+        console.log("This is the api response : ");
+        console.log(res.data);
+        this.setState({ todos: res.data })
+      });
+  }
 
   completeToDo = (id) => {
     console.log("Changing staus of Task : " + id);
     this.setState({
       todos: this.state.todos.map((todo) => {
         if (todo.id === id) {
-          todo.complete = !todo.complete;
+          todo.completed = !todo.completed;
         }
         return todo;
       }),
